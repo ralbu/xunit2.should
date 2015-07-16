@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Xunit2.Should
 {
@@ -10,7 +11,7 @@ namespace Xunit2.Should
     {
         public static void ShouldBeTrue(this bool val)
         {
-            
+            Assert.True(val);
         }
     }
 }
