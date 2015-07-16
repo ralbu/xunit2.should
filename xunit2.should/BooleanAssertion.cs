@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Xunit2.Should
 {
-    class BooleanAssertion
+    public static class BooleanAssertion
     {
+        public static void ShouldBeTrue(this bool val)
+        {
+            
+        }
     }
 }
