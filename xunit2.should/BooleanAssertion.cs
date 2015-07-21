@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace Xunit2.Should
 {
     public static class BooleanAssertion
     {
-        public static void ShouldBeTrue(this bool val)
+        public static void ShouldBeTrue(this bool condition, string message = null)
         {
-            Assert.True(val);
+            Assert.True(condition, message);
+        }
+
+        public static void ShouldBeFalse(this bool condition, string message = null)
+        {
+            Assert.False(condition, message);
         }
     }
 }

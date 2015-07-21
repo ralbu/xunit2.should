@@ -5,14 +5,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{95DBE630-EDCC-47CF-9D86-4CF58012D6E7}</ProjectGuid>
+    <ProjectGuid>{50B9CE69-9E5B-4523-9F61-D2C7EEAC8134}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Xunit2.Should</RootNamespace>
-    <AssemblyName>xunit2.should</AssemblyName>
+    <RootNamespace>xunit2.should.test</RootNamespace>
+    <AssemblyName>xunit2.should.test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>764e2088</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>a7b66b80</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,7 +42,8 @@
     <Reference Include="xunit.abstractions">
       <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.assert">
+    <Reference Include="xunit.assert, Version=2.0.0.2929, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\xunit.assert.2.0.0\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.assert.dll</HintPath>
     </Reference>
     <Reference Include="xunit.core">
@@ -50,12 +51,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BooleanAssertion.cs" />
-    <Compile Include="ExceptionAssertion.cs" />
-    <Compile Include="IdentityAssertion.cs" />
-    <Compile Include="NullAssertions.cs" />
+    <Compile Include="BooleanAssertionTest.cs" />
+    <Compile Include="ExceptionAssertionTest.cs" />
+    <Compile Include="IdentityAssertionTest.cs" />
+    <Compile Include="NullAssertionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RangeAssertion.cs" />
+    <Compile Include="RangeAssertionTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xunit2.should\xunit2.should.csproj">
+      <Project>{95dbe630-edcc-47cf-9d86-4cf58012d6e7}</Project>
+      <Name>xunit2.should</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
