@@ -57,6 +57,7 @@
     <Compile Include="NullAssertionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RangeAssertionTest.cs" />
+    <Compile Include="StringAssertionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\xunit2.should\xunit2.should.csproj">
