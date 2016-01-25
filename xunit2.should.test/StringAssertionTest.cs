@@ -86,7 +86,7 @@ namespace xunit2.should.test
         [Fact]
         public void ShouldBeEqualIgnoreCase()
         {
-            "xunit".ShouldBeEqual("xUnit ", ignoreCase: true);
+            "xunit".ShouldBeEqual("xUnit", ignoreCase: true);
         }
 
     }
