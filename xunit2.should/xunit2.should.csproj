@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanAssertion.cs" />
+    <Compile Include="CollectionAssertion.cs" />
     <Compile Include="ExceptionAssertion.cs" />
     <Compile Include="IdentityAssertion.cs" />
     <Compile Include="NullAssertions.cs" />

@@ -28,7 +28,7 @@ namespace Xunit2.Should
         {
             Assert.DoesNotContain(substring, actual, comparison);
         }
-
+            
         public static void ShouldStartWith(this string actual, string expectedStartWith)
         {
             Assert.StartsWith(expectedStartWith, actual);
