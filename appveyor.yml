@@ -24,6 +24,10 @@ nuget:
   project_feed: true
   disable_publish_on_pr: true
 
+branches:
+  only:
+    - master
+
 # deploy:
   # provider: NuGet
   # api_key:
