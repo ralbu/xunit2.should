@@ -29,5 +29,13 @@ namespace Xunit2.Should
             Assert.DoesNotContain(expected, actual, comparer);
         }
 
+        public static void ShouldContainElementsWithCriteriaAs<T>(this IEnumerable<T> actual, params Action<T>[] elementInspectors)
+        {
+
+            Assert.Collection(actual, elementInspectors);
+
+
+        }
+
     }
 }

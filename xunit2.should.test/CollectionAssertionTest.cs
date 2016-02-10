@@ -37,6 +37,17 @@ namespace xunit2.should.test
             var collection = new List<string> { "xunit", "nunit" };
             collection.ShouldNotContain("funit", new StringLowerComparer());
         }
+
+
+        [Fact]
+        public void ShouldContainsElementsWithCriteria()
+        {
+            var list = new List<string> { "xunit", "nunit"};
+
+            list.ShouldContainElementsWithCriteriaAs(e => e.ShouldBeTheSameAs("xunit"),
+                e => e.ShouldBeTheSameAs("nunit"));
+        }
+
     }
 
 
