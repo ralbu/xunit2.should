@@ -48,6 +48,18 @@ namespace xunit2.should.test
                 e => e.ShouldBeTheSameAs("nunit"));
         }
 
+
+        private void Act(int aa, int inx)
+        {
+            
+            aa.ShouldNotBeNull();
+        }
+        [Fact]
+        public void ShouldAllPass()
+        {
+            var list = new[] {"xunit", "nunit", "msunit"};
+            list.ShouldAllPass(i => i.ShouldContain("unit"));
+        }
     }
 
 
