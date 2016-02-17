@@ -13,53 +13,63 @@ namespace xunit2.should.test
         [Fact]
         public void ShouldContain()
         {
-            var collection = new List<string> {"xunit"};
-            collection.ShouldContain("xunit");
+            var frameworks = new List<string> {"xunit"};
+            frameworks.ShouldContain("xunit");
         }
 
         [Fact]
         public void ShouldContainWithComparer()
         {
-            var collection = new List<string> { "nunit", "xunit" };
-            collection.ShouldContain("xUnit", new StringLowerComparer());
+            var frameworks = new List<string> { "nunit", "xunit" };
+            frameworks.ShouldContain("xUnit", new StringLowerComparer());
+        }
+
+        [Fact]
+        public void ShouldContainsWitFilter()
+        {
+            var frameworks = new List<string> {"xunit", "nunit", "msunit"};
+
+            frameworks.ShouldContain(i => i.Contains("nunit"));
+        }
+
+        [Fact]
+        public void ShouldContainsElementsWithCriteria()
+        {
+            var frameworks = new List<string> { "xunit", "nunit"};
+
+            frameworks.ShouldContainElementsWithCriteriaAs(e => e.ShouldBeTheSameAs("xunit"),
+                e => e.ShouldBeTheSameAs("nunit"));
         }
 
         [Fact]
         public void ShouldNotContain()
         {
-            var collection = new List<string> { "nunit" };
-            collection.ShouldNotContain("xunit");
+            var frameworks = new List<string> { "nunit" };
+            frameworks.ShouldNotContain("xunit");
         }
 
         [Fact]
         public void ShouldNotContainWithComparer()
         {
-            var collection = new List<string> { "xunit", "nunit" };
-            collection.ShouldNotContain("funit", new StringLowerComparer());
+            var frameworks = new List<string> { "xunit", "nunit" };
+            frameworks.ShouldNotContain("funit", new StringLowerComparer());
         }
-
 
         [Fact]
-        public void ShouldContainsElementsWithCriteria()
+        public void ShouldNotContainWithFilter()
         {
-            var list = new List<string> { "xunit", "nunit"};
-
-            list.ShouldContainElementsWithCriteriaAs(e => e.ShouldBeTheSameAs("xunit"),
-                e => e.ShouldBeTheSameAs("nunit"));
+            var frameworks = new[] {"xunit", "nunit"};
+            frameworks.ShouldNotContain(x => x.Contains("msunit"));
         }
 
-
-        private void Act(int aa, int inx)
-        {
-            
-            aa.ShouldNotBeNull();
-        }
         [Fact]
         public void ShouldAllPass()
         {
-            var list = new[] {"xunit", "nunit", "msunit"};
-            list.ShouldAllPass(i => i.ShouldContain("unit"));
+            var frameworks = new[] {"xunit", "nunit", "msunit"};
+            frameworks.ShouldAllPass(i => i.ShouldContain("unit"));
         }
+
+
     }
 
 

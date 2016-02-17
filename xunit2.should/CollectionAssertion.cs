@@ -9,25 +9,40 @@ namespace Xunit2.Should
 {
     public static class CollectionAssertion
     {
+        /// <summary>
+        /// Should contain a given object.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified.</typeparam>
+        /// <param name="actual">The collection to be inspected</param>
+        /// <param name="expected">The object expected to be in the collection.</param>
         public static void ShouldContain<T>(this IEnumerable<T> actual, T expected)
         {
            Assert.Contains(expected, actual);
         }
 
+        /// <summary>
+        /// Should contain a given object using an equality comparer.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified.</typeparam>
+        /// <param name="actual">The collection to be inspected.</param>
+        /// <param name="expected">The object expected to be in the collection.</param>
+        /// <param name="comparer">The equality comparer</param>
         public static void ShouldContain<T>(this IEnumerable<T> actual, T expected, IEqualityComparer<T> comparer)
         {
             Assert.Contains(expected, actual, comparer);
         }
 
-        public static void ShouldNotContain<T>(this IEnumerable<T> actual, T expected)
+        /// <summary>
+        /// Should contain a given object using a filter to find that object.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified.</typeparam>
+        /// <param name="actual">The collection to be inspected.</param>
+        /// <param name="filter">The filter used to find the item you're ensuring the collection contains.</param>
+        public static void ShouldContain<T>(this IEnumerable<T> actual, Predicate<T> filter)
         {
-            Assert.DoesNotContain(expected, actual);
+            Assert.Contains(actual, filter);
         }
 
-        public static void ShouldNotContain<T>(this IEnumerable<T> actual, T expected, IEqualityComparer<T> comparer)
-        {
-            Assert.DoesNotContain(expected, actual, comparer);
-        }
 
         /// <summary>
         /// Should contain exactly a given number of elements and elements should meet the criteria provided in the criteria parameter.
@@ -41,6 +56,41 @@ namespace Xunit2.Should
         }
 
         /// <summary>
+        /// Should Not contain a given object.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified.</typeparam>
+        /// <param name="actual">The collection to be inspected.</param>
+        /// <param name="expected">The object expected Not to be in the collection.</param>
+        public static void ShouldNotContain<T>(this IEnumerable<T> actual, T expected)
+        {
+            Assert.DoesNotContain(expected, actual);
+        }
+
+        /// <summary>
+        /// Should Not contain a given object using an equality comparer.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified.</typeparam>
+        /// <param name="actual">The collection to be inspected.</param>
+        /// <param name="expected">The object expected Not to be in the collection.</param>
+        /// <param name="comparer">The equality comparer</param>
+        public static void ShouldNotContain<T>(this IEnumerable<T> actual, T expected, IEqualityComparer<T> comparer)
+        {
+            Assert.DoesNotContain(expected, actual, comparer);
+        }
+
+
+        /// <summary>
+        /// Should Not contain a given object using a filter to find that object.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified.</typeparam>
+        /// <param name="actual">The collection to be inspected.</param>
+        /// <param name="filter">The filter used to search for the item you're ensuring is Not in the collection.</param>
+        public static void ShouldNotContain<T>(this IEnumerable<T> actual, Predicate<T> filter)
+        {
+            Assert.DoesNotContain(actual, filter);
+        }
+
+        /// <summary>
         /// Verifies that all items in the collection pass when executed against action.
         /// </summary>
         /// <typeparam name="T">The type of the object to be verified</typeparam>
@@ -50,6 +100,7 @@ namespace Xunit2.Should
         {
             Assert.All(actual, action);
         }
+
 
     }
 }
