@@ -69,6 +69,28 @@ namespace xunit2.should.test
             frameworks.ShouldAllPass(i => i.ShouldContain("unit"));
         }
 
+        [Fact]
+        public void ShouldBeEmpty()
+        {
+            var empty = new string[0];
+            empty.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void ShouldNotBeEmpty()
+        {
+            var notEmpty = new[] {"xunit", "nunit"};
+
+            notEmpty.ShouldNotBeEmpty();
+        }
+
+        [Fact]
+        public void ShouldBeEqual()
+        {
+            var frameworks = new[] {"xunit", "nunit", "msunit"};
+            var sameFrameworks = new[] {"xunit", "nunit", "msunit"};
+            frameworks.ShouldBeEqual(sameFrameworks);
+        }
 
     }
 

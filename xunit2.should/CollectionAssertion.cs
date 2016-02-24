@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -96,11 +97,38 @@ namespace Xunit2.Should
         /// <typeparam name="T">The type of the object to be verified</typeparam>
         /// <param name="actual">The collection to be inspected</param>
         /// <param name="action">The action to test each item against</param>
-        public static void ShouldAllPass <T>(this IEnumerable<T> actual, Action<T> action)
+        public static void ShouldAllPass<T>(this IEnumerable<T> actual, Action<T> action)
         {
             Assert.All(actual, action);
         }
 
+        /// <summary>
+        /// Collection should be empty.
+        /// </summary>
+        /// <param name="actual">The collection to be inspected</param>
+        public static void ShouldBeEmpty(this IEnumerable actual)
+        {
+            Assert.Empty(actual);
+        }
 
+        /// <summary>
+        /// Collection should not be empty.
+        /// </summary>
+        /// <param name="actual">The collection to be inspected</param>
+        public static void ShouldNotBeEmpty(this IEnumerable actual)
+        {
+            Assert.NotEmpty(actual);
+        }
+
+        /// <summary>
+        /// Collection should be equivalent using a default comparer.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified</typeparam>
+        /// <param name="actual">The collection to be inspected</param>
+        /// <param name="expected">The action to test each item against</param>
+        public static void ShouldBeEqual<T>(this IEnumerable<T> actual, IEnumerable<T> expected)
+        {
+            Assert.Equal(actual, expected);
+        }
     }
 }
