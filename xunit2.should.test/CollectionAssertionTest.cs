@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,6 +93,32 @@ namespace xunit2.should.test
             frameworks.ShouldBeEqual(sameFrameworks);
         }
 
+        [Fact]
+        public void ShouldBeEqualWithComparer()
+        {
+            var frameworks = new[] {"xunit", "nunit"};
+            var frameworksUpperCase = new[] {"XUNIT", "NUNIT"};
+            frameworks.ShouldBeEqual(frameworksUpperCase, new StringLowerComparer());
+        }
+
+        [Fact]
+        public void ShouldNotBeEqual()
+        {
+            var unitTesing = new[] {"xunit", "nunit"};
+            var ioc = new[] {"ninject", "autofac"};
+
+            unitTesing.ShouldNotBeEqual(ioc);
+        }
+
+        [Fact]
+        public void ShouldNotBeEqualWithComparer()
+        {
+            var frameworksUpperCase = new[] {"xunit", "nunit"};
+            var sameFramework = new[] {"xunit", "nunit"};
+
+            frameworksUpperCase.ShouldNotBeEqual(sameFramework, new PrependDash());
+        }
+
     }
 
 
@@ -107,6 +134,18 @@ namespace xunit2.should.test
         {
             throw new NotImplementedException();
         }
+    }
 
+    public class PrependDash : IEqualityComparer<string>
+    {
+        public bool Equals(string x, string y)
+        {
+            return x == "-" + y;
+        }
+
+        public int GetHashCode(string ob)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

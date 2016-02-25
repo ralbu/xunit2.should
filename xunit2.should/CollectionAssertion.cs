@@ -121,14 +121,51 @@ namespace Xunit2.Should
         }
 
         /// <summary>
-        /// Collection should be equivalent using a default comparer.
+        /// Collections should be equivalent using a default comparer.
         /// </summary>
         /// <typeparam name="T">The type of the object to be verified</typeparam>
         /// <param name="actual">The collection to be inspected</param>
         /// <param name="expected">The action to test each item against</param>
         public static void ShouldBeEqual<T>(this IEnumerable<T> actual, IEnumerable<T> expected)
         {
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
+
+        /// <summary>
+        /// Collections should be equivalent using a custom comparer.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified</typeparam>
+        /// <param name="actual">The collection to be inspected</param>
+        /// <param name="expected">The action to test each item against</param>
+        /// <param name="comparer">The comparer to compare two objects</param>
+        public static void ShouldBeEqual<T>(this IEnumerable<T> actual, IEnumerable<T> expected, IEqualityComparer<T> comparer)
+        {
+            Assert.Equal(expected, actual, comparer);
+        }
+
+        /// <summary>
+        /// Collections elements should not be equivalent.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified</typeparam>
+        /// <param name="actual">The collection to be inspected</param>
+        /// <param name="expected">The action to test each item against</param>
+        public static void ShouldNotBeEqual<T>(this IEnumerable<T> actual, IEnumerable<T> expected)
+        {
+            Assert.NotEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Collections should not be equivalent using a custom comparer.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified</typeparam>
+        /// <param name="actual">The collection to be inspected</param>
+        /// <param name="expected">The action to test each item against</param>
+        /// <param name="comparer">The comparer to compare two objects</param>
+        public static void ShouldNotBeEqual<T>(this IEnumerable<T> actual, IEnumerable<T> expected,
+            IEqualityComparer<T> comparer)
+        {
+            Assert.NotEqual(expected, actual, comparer);
+        }
+
     }
 }
