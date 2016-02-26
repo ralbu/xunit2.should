@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -118,6 +119,32 @@ namespace xunit2.should.test
 
             frameworksUpperCase.ShouldNotBeEqual(sameFramework, new PrependDash());
         }
+
+        [Fact]
+        public void ShouldContainOneElement()
+        {
+            var oneElement = new ArrayList();
+            oneElement.Add("xunit");
+
+            oneElement.ShouldContainOneElement();
+        }
+
+        [Fact]
+        public void ShouldContainOneElementOfGivenValue()
+        {
+            var oneElement = new[] {"xunit"};
+            oneElement.ShouldContainOneElement("xunit");
+        }
+
+        [Fact]
+        public void ShouldContainOneElementTyped()
+        {
+            var oneElement = new[] {"xunit"};
+            oneElement.ShouldContainOneElement();
+        }
+
+        [Fact]
+        public void ShouldContainOneElement
 
     }
 

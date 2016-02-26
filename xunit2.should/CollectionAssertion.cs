@@ -166,6 +166,41 @@ namespace Xunit2.Should
         {
             Assert.NotEqual(expected, actual, comparer);
         }
+        
+        /// <summary>
+        /// Collection should contain only one element.
+        /// </summary>
+        /// <param name="actual">The collection to be inspected</param>
+        public static void ShouldContainOneElement(this IEnumerable actual)
+        {
+            Assert.Single(actual);
+        }
+
+        /// <summary>
+        /// Collection should contain only one element of a given value. The collection may or may not contains
+        /// other values.
+        /// </summary>
+        /// <param name="actual">The collection to be inspected</param>
+        /// <param name="expected">The value to find in the collection</param>
+        public static void ShouldContainOneElement(this IEnumerable actual, object expected)
+        {
+            Assert.Single(actual, expected);
+        }
+
+        /// <summary>
+        /// Collection should contain only one element.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified</typeparam>
+        /// <param name="actual">The collection to be inspected</param>
+        public static void ShouldContainOneElement<T>(this IEnumerable<T> actual)
+        {
+            Assert.Single(actual);
+        }
+
+        public static void ShouldContainOneElement<T>(this IEnumerable<T> actual, Predicate<T> predicate)
+        {
+            
+        }
 
     }
 }
