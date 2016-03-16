@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Xunit2.Should
@@ -197,9 +194,16 @@ namespace Xunit2.Should
             Assert.Single(actual);
         }
 
+        /// <summary>
+        /// Collection should contain only one element which matches the predicate.
+        /// The collection may contain other elements but they should not match the given predicate.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be verified</typeparam>
+        /// <param name="actual">The collection to be inspected</param>
+        /// <param name="predicate">Predicate to match the item</param>
         public static void ShouldContainOneElement<T>(this IEnumerable<T> actual, Predicate<T> predicate)
         {
-            
+            Assert.Single(actual, predicate);
         }
 
     }

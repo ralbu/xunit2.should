@@ -1,10 +1,6 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 using Xunit2.Should;
 
@@ -144,8 +140,18 @@ namespace xunit2.should.test
         }
 
         [Fact]
-        public void ShouldContainOneElement
+        public void ShouldContainOneElementInOneItemCollectionWithMatchingPredicate()
+        {
+            var oneElement = new[] {"xunit"};
+            oneElement.ShouldContainOneElement(x => x.Contains("unit"));
+        }
 
+        [Fact]
+        public void ShouldContainOneElementInCollectionWithMultipleItemsWithMatchingPredicate()
+        {
+            var oneElement = new[] {"xunit", "mstest"};
+            oneElement.ShouldContainOneElement(x => x.Contains("unit"));
+        }
     }
 
 
