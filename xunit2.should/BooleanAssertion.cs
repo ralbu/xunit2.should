@@ -9,7 +9,16 @@ namespace Xunit2.Should
             Assert.True(condition, message);
         }
 
+        public static void ShouldBeTrue(this bool? condition, string message = null)
+        {
+            Assert.True(condition, message);
+        }
+
         public static void ShouldBeFalse(this bool condition, string message = null)
+        {
+            Assert.False(condition, message);
+        }
+        public static void ShouldBeFalse(this bool? condition, string message = null)
         {
             Assert.False(condition, message);
         }
