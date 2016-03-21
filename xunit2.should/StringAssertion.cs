@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Xunit2.Should
@@ -69,7 +65,7 @@ namespace Xunit2.Should
             Assert.DoesNotMatch(regex, actual);
         }
 
-        public static void ShouldBeEqual(this string expected, string actual, bool ignoreCase = false,
+        public static void ShouldBeEqual(this string actual, string expected, bool ignoreCase = false,
             bool ignoreLineEndingDifferences = false, bool ignoreWhiteSpaceDifferences = false)
         {
             Assert.Equal(expected, actual, ignoreCase, ignoreLineEndingDifferences, ignoreWhiteSpaceDifferences);

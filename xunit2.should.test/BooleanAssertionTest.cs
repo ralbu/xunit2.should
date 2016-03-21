@@ -18,6 +18,14 @@ namespace xunit2.should.test
         }
 
         [Fact]
+        public void NullableShouldBeTrue()
+        {
+            bool? boolValue = true;
+
+            boolValue.ShouldBeTrue();
+        }
+
+        [Fact]
         public void ShouldBeFalse()
         {
             false.ShouldBeFalse();
@@ -27,6 +35,14 @@ namespace xunit2.should.test
         public void ShouldBeFalseWithMessage()
         {
             false.ShouldBeFalse("Error message");
+        }
+
+        [Fact]
+        public void NullableShouldBeFalse()
+        {
+            bool? boolValue = false;
+
+            boolValue.ShouldBeFalse();
         }
     }
 }

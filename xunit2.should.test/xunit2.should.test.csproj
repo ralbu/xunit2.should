@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BooleanAssertionTest.cs" />
     <Compile Include="CollectionAssertionTest.cs" />
+    <Compile Include="EqualityAssertionTest.cs" />
     <Compile Include="IdentityAssertionTest.cs" />
     <Compile Include="NullAssertionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
