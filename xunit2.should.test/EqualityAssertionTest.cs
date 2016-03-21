@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 using Xunit2.Should;
 
@@ -35,9 +32,38 @@ namespace xunit2.should.test
         }
 
         [Fact]
-        public void DoubleShouldBeEqual()
+        public void DecimalsShouldBeEqual()
         {
-            2.111223.ShouldBe(2.11144, 3);
+            0.111223M.ShouldBe(0.11144M, 3);
+        }
+
+        [Fact]
+        public void IntsShouldNotBeEqual()
+        {
+            1.ShouldNotBe(2);
+        }
+
+        [Fact]
+        public void StringsShouldNotBeEqual()
+        {
+            "xunit".ShouldNotBe("nunit");
+        }
+
+        [Fact]
+        public void ShouldNotBeEqualUsingComparer()
+        {
+            1.ShouldNotBe(2, new IntEqualityComparer());
+        }
+        [Fact]
+        public void DoubleShouldNotBeEqual()
+        {
+            2.111223.ShouldNotBe(2.11244, 3);
+        }
+
+        [Fact]
+        public void DecimalsShouldNotBeEqual()
+        {
+            0.111223M.ShouldNotBe(0.11344M, 3);
         }
     }
 
