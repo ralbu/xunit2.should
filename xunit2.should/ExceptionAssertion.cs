@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using Xunit;
 
+// Visible to tests only because still working on this. Only Actions can be used in a fluent way
+[assembly:InternalsVisibleTo("xunit2.should.test")]
 namespace Xunit2.Should
 {
     public static class ExceptionAssertion
     {
-        public static void ShouldThrowException<T>(this T ex, Action action) where T: Exception
+        internal static TException ShouldBeThrownBy<TException>(this TException exception, Func<object> method)
+            where TException : Exception
         {
-            Assert.Throws<T>(action);
+            return Assert.Throws<TException>(method);
         }
 
-        public static void ShouldTrhow<T>(this Action a) where T : Exception
+        internal static TException ShouldThrow<TException>(this Action action) where TException : Exception
         {
-            Assert.Throws<T>(a);
+            return Assert.Throws<TException>(action);
         }
     }
 }
