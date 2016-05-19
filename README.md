@@ -9,10 +9,21 @@ https://www.nuget.org/packages/xunit2.should/
 
 ### Examples
 
-Some examples
+## Boolean assertion
 ```c#
-	var a = 1;
-    3.ShouldBe(3);
+    true.ShouldBeTrue();
+    
+    true.ShouldBeTrue("Error message");
+
+    bool? boolValue = true;
+    boolValue.ShouldBeTrue();
+
+    false.ShouldBeFalse()
+
+    false.ShouldBeFalse("Error message");
+
+    bool? boolValue = false;
+    boolValue.ShouldBeFalse();
 ```
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/ralbu/xunit2.should?svg=true)](https://ci.appveyor.com/projects/status/ralbu/xunit2-should)
