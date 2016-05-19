@@ -9,14 +9,14 @@ https://www.nuget.org/packages/xunit2.should/
 
 ### Assertions
 Contains the following assertions
-* Boolean
-* Collection
-* Equality
-* Exception
-* Identity
-* Null
-* Range
-* String
+* [Boolean](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/BooleanAssertionTest.cs)
+* [Collection](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/CollectionAssertionTest.cs)
+* [Equality](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/EqualityAssertionTest.cs)
+* [Exception](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/ExceptionAssertionTest.cs)
+* [Identity](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/IdentityAssertionTest.cs)
+* [Null](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/NullAssertionTest.cs)
+* [Range](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/RangeAssertionTest.cs)
+* [String](https://github.com/ralbu/xunit2.should/blob/dev/xunit2.should.test/StringAssertionTest.cs)
 
 For more details check the [Unit Test project](https://github.com/ralbu/xunit2.should/tree/dev/xunit2.should.test)
 
