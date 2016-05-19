@@ -7,9 +7,9 @@ https://www.nuget.org/packages/xunit2.should/
 
     PM> Install-Package xunit2.should
 
-### Examples
+## Examples
 
-## Boolean assertion
+### Boolean assertions
 ```c#
     true.ShouldBeTrue();
     
@@ -24,6 +24,25 @@ https://www.nuget.org/packages/xunit2.should/
 
     bool? boolValue = false;
     boolValue.ShouldBeFalse();
+```
+
+### Collection assertions
+```c#
+    var frameworks = new List<string> {"xunit"};
+    frameworks.ShouldContain("xunit");
+
+    var frameworks = new List<string> { "nunit", "xunit" };
+    frameworks.ShouldContain("xUnit", new StringLowerComparer());
+
+    var frameworks = new List<string> {"xunit", "nunit", "msunit"};
+    frameworks.ShouldContain(i => i.Contains("nunit"));
+
+    var frameworks = new List<string> { "xunit", "nunit"};
+    frameworks.ShouldContainElementsWithCriteriaAs(e => e.ShouldBeTheSameAs("xunit"),
+        e => e.ShouldBeTheSameAs("nunit"));
+
+    var frameworks = new List<string> { "nunit" };
+    frameworks.ShouldNotContain("xunit");
 ```
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/ralbu/xunit2.should?svg=true)](https://ci.appveyor.com/projects/status/ralbu/xunit2-should)
