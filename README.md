@@ -10,8 +10,9 @@ https://www.nuget.org/packages/xunit2.should/
 ### Examples
 
 Some examples
-
-	3.ShouldBe(3);
-
+```c#
+	var a = 1;
+    3.ShouldBe(3);
+```
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/ralbu/xunit2.should?svg=true)](https://ci.appveyor.com/projects/status/ralbu/xunit2-should)
