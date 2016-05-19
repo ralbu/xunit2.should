@@ -7,29 +7,22 @@ https://www.nuget.org/packages/xunit2.should/
 
     PM> Install-Package xunit2.should
 
-## Examples
+### Assertions
+Contains the following assertions
+* Boolean
+* Collection
+* Equality
+* Exception
+* Identity
+* Null
+* Range
+* String
 
-### Boolean assertions
+For more details check the [Unit Test project](https://github.com/ralbu/xunit2.should/tree/dev/xunit2.should.test)
+
+### Examples
 ```c#
-    true.ShouldBeTrue();
-    
     true.ShouldBeTrue("Error message");
-
-    bool? boolValue = true;
-    boolValue.ShouldBeTrue();
-
-    false.ShouldBeFalse()
-
-    false.ShouldBeFalse("Error message");
-
-    bool? boolValue = false;
-    boolValue.ShouldBeFalse();
-```
-
-### Collection assertions
-```c#
-    var frameworks = new List<string> {"xunit"};
-    frameworks.ShouldContain("xunit");
 
     var frameworks = new List<string> { "nunit", "xunit" };
     frameworks.ShouldContain("xUnit", new StringLowerComparer());
@@ -37,12 +30,29 @@ https://www.nuget.org/packages/xunit2.should/
     var frameworks = new List<string> {"xunit", "nunit", "msunit"};
     frameworks.ShouldContain(i => i.Contains("nunit"));
 
-    var frameworks = new List<string> { "xunit", "nunit"};
-    frameworks.ShouldContainElementsWithCriteriaAs(e => e.ShouldBeTheSameAs("xunit"),
-        e => e.ShouldBeTheSameAs("nunit"));
+    var frameworks = new[] {"xunit", "nunit", "msunit"};
+    frameworks.ShouldAllPass(i => i.ShouldContain("unit"));
 
-    var frameworks = new List<string> { "nunit" };
-    frameworks.ShouldNotContain("xunit");
+    var notEmpty = new[] {"xunit", "nunit"};
+    notEmpty.ShouldNotBeEmpty();
+
+    var oneElement = new ArrayList();
+    oneElement.Add("xunit");
+    oneElement.ShouldContainOneElement();
+
+    2.111223.ShouldBe(2.11144, 3);
+
+    Action action = ThrowCustomException;
+    action.ShouldThrow<CustomException>();
+
+    object expected = new object();
+    object expectedDifferent = new object();
+    expected.ShouldNotBeTheSameAs(expectedDifferent);
+
+    3.ShouldBeLessOrEqualTo(4);
+
+    "xunitTest".ShouldStartWith("xunit");
+    "xunit".ShouldNotMatch(new Regex(@"\d"));
 ```
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/ralbu/xunit2.should?svg=true)](https://ci.appveyor.com/projects/status/ralbu/xunit2-should)
