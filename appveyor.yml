@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: 2.0.{build}
 
 assembly_info:
   patch: true
@@ -14,7 +14,7 @@ configuration: Release
 build:
   project: xunit2.should.sln
   verbosity: detailed
-  publish_nuget: true
+  publish_nuget: false
 
 before_build:
   - nuget restore
