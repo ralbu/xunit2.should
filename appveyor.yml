@@ -35,8 +35,8 @@ nuget:
   disable_publish_on_pr: true
 
 artifacts:
-  -path: bin\Release\*.nupkg
-   name: xunit2.should
+  - path: bin\Release\*.nupkg
+    name: xunit2.should
 
 #branches:
 #  only:
