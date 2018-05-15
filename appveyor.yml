@@ -1,4 +1,4 @@
-version: 2.0.{build}
+version: 2.2.0.{build}
 
 dotnet_csproj:
   patch: true
@@ -13,14 +13,19 @@ platform: Any CPU
 
 configuration: Release
 
-build:
-  project: xunit2.should.sln
-  verbosity: detailed
-  publish_nuget: false
+build_script:
+  - ps: dotnet --info
+  - ps: dotnet restore
+  - ps: dotnet build
 
-before_build:
-  - nuget restore
-  - cmd: dotnet --version
+#build:
+#  project: xunit2.should.sln
+#  verbosity: detailed
+#  publish_nuget: false
+
+#before_build:
+#  - nuget restore
+#  - cmd: dotnet --version
 
 nuget:
   account_feed: true
@@ -31,9 +36,9 @@ branches:
   only:
     - master
 
-deploy:
-  provider: NuGet
-  api_key:
-    secure: 65DMGVnniyCfcu6cf50N//7QAj2SHmWkkx4zpeatI42x7UHeTApWDJDEUQPcFlzf
-  skip_symbols: false
-  artifact: /.*\.nupkg/
+#deploy:
+#  provider: NuGet
+#  api_key:
+#    secure: 65DMGVnniyCfcu6cf50N//7QAj2SHmWkkx4zpeatI42x7UHeTApWDJDEUQPcFlzf
+#  skip_symbols: false
+#  artifact: /.*\.nupkg/
