@@ -47,4 +47,4 @@ deploy:
   api_key:
     secure: 65DMGVnniyCfcu6cf50N//7QAj2SHmWkkx4zpeatI42x7UHeTApWDJDEUQPcFlzf
   skip_symbols: false
-  artifact: xunit2.should\artifacts\*.nupkg
+  artifact: xunit2.should\artifacts\xunit2.should.2.2.0-beta-build38.nupkg
