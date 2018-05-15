@@ -34,6 +34,10 @@ nuget:
   project_feed: true
   disable_publish_on_pr: true
 
+artifacts:
+  -path: bin\Release\*.nupkg
+   name: xunit2.should
+
 #branches:
 #  only:
 #    - master
