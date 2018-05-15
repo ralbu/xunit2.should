@@ -18,7 +18,7 @@ build_script:
   - ps: dotnet restore
   - ps: dotnet build
   - ps: dotnet test .\xunit2.should.test
-  - ps: dotnet pack
+  - ps: dotnet pack -o ./
 
 #build:
 #  project: xunit2.should.sln
