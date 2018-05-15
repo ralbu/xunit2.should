@@ -20,15 +20,6 @@ build_script:
   - ps: dotnet test .\xunit2.should.test
   - ps: dotnet pack -o .\artifacts\
 
-#build:
-#  project: xunit2.should.sln
-#  verbosity: detailed
-#  publish_nuget: false
-
-#before_build:
-#  - nuget restore
-#  - cmd: dotnet --version
-
 nuget:
   account_feed: true
   project_feed: true
@@ -38,9 +29,9 @@ artifacts:
   - path: xunit2.should\artifacts\*.nupkg
     name: NuGet
 
-#branches:
-#  only:
-#    - master
+branches:
+  only:
+    - master
 
 deploy:
   provider: NuGet
