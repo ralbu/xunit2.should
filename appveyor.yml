@@ -18,7 +18,7 @@ build_script:
   - ps: dotnet restore
   - ps: dotnet build
   - ps: dotnet test .\xunit2.should.test
-  - ps: dotnet pack -o ../
+  - ps: dotnet pack -o .\artifacts\
 
 #build:
 #  project: xunit2.should.sln
@@ -35,8 +35,8 @@ nuget:
   disable_publish_on_pr: true
 
 artifacts:
-  - path: /.*\.nupkg/
-    name: xunit2.should
+  - path: .\artifacts\**\*.nupkg/
+    name: NuGet
 
 #branches:
 #  only:
@@ -47,4 +47,4 @@ deploy:
   api_key:
     secure: 65DMGVnniyCfcu6cf50N//7QAj2SHmWkkx4zpeatI42x7UHeTApWDJDEUQPcFlzf
   skip_symbols: false
-  artifact: /.*\.nupkg/
+  artifact: /.*\*.nupkg/
