@@ -29,18 +29,13 @@ build_script:
 #  - nuget restore
 #  - cmd: dotnet --version
 
-test:
-  assemblies:
-    only:
-      - '**\*.xunit2.should.test'
-
 nuget:
   account_feed: true
   project_feed: true
   disable_publish_on_pr: true
 
 artifacts:
-  - path: xunit2.should\artifacts\**\*.nupkg/
+  - path: xunit2.should\artifacts\*.nupkg
     name: NuGet
 
 #branches:
@@ -52,4 +47,4 @@ deploy:
   api_key:
     secure: 65DMGVnniyCfcu6cf50N//7QAj2SHmWkkx4zpeatI42x7UHeTApWDJDEUQPcFlzf
   skip_symbols: false
-  artifact: xunit2.should\artifacts\**\*.nupkg/
+  artifact: xunit2.should\artifacts\*.nupkg
